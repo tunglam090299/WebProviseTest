@@ -35,7 +35,7 @@ class TestScript
     protected $company;
     protected $travel;
 
-    public function __construct($company, $travel)
+    public function __construct(Company $company,Travel $travel)
     {
         $this->company = $company;
         $this->travel = $travel;
@@ -67,7 +67,7 @@ class TestScript
             foreach($array as $item) {
                 if($item->id == $id ) {
                     array_push($parents, $item->id);
-                    if($item->parentId != 0){
+                    if($item->parentId){
                         $this->findParent($array, $item->parentId);
                     }
                 }
